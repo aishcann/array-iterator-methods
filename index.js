@@ -139,10 +139,13 @@ const data = [
 ];
 
 
-const dataCount = data.reduce((count, vehicle) =>{
-    count[vehicle] = data.filter((d) => d === vehicle).length
-    return count
-}, {})
+const dataCount = data.reduce((count, vehicle) => {
+	if (!count[vehicle]) {
+		count[vehicle] = 0;
+	}
+	count[vehicle]++;
+	return count;
+}, {});
 
 console.log(dataCount)
 
