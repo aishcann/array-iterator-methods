@@ -138,57 +138,13 @@ const data = [
 	'truck',
 ];
 
-// Array.prototype.reduce()
-// 7. Count the number of instances for each of the data items. The reduce should return an object where the keys are 'car', 'truck', etc. and the values are the count.
-// Hint: Since you want to return an object, be sure to pass an empty {} for the initial value of the "accumulator".
 
-// const dataCount = data.reduce((accumulator, currentValue) => {
-//     if (currentValue === 'car') {
-//         accumulator.car += 1
-//     } else if (currentValue === 'truck') {
-//         accumulator.truck += 1
-//     } else if (currentValue === 'van') {
-//         accumulator.van += 1
-//     } else if (currentValue === 'bike') {
-//         accumulator.bike += 1
-//     } else {
-//         accumulator.walk += 1
-//     }
-//     return accumulator
-// }, {
-//     car: 0,
-//     truck: 0,
-//     van: 0,
-//     bike: 0,
-//     walk: 0
-// })
-
-let car = 0
-let truck = 0
-let van = 0
-let bike = 0
-let walk = 0
 const dataCount = data.reduce((count, vehicle) =>{
-      if (vehicle === 'car') {
-        car ++
-        count.car = car
-    } else if (vehicle === 'truck') {
-        truck ++
-        count.truck = car
-    } else if (vehicle === 'van') {
-        van ++
-        count.van = van
-    } else if (vehicle === 'bike') {
-        bike ++
-        count.bike = bike
-    } else {
-        walk ++
-        count.walk = walk
-    }
+    count[vehicle] = data.filter((d) => d === vehicle).length
     return count
 }, {})
 
-// console.log(dataCount)
+console.log(dataCount)
 
 const devs = [
 	{ name: 'Wes', year: 1988 },
